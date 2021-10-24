@@ -1,16 +1,16 @@
 #/bin/bash
 clear
-echo "######################################################"
-echo "#                                                    #"
-echo "#                    SUPER RENAME                    #"
-echo "#                    BY WMD & OKL                    #"
-echo "#                    © 2021                          #"
-echo "#                                                    #"
-echo "######################################################"
-
-echo ""
-echo ""
-echo ""
+read -r -d '' LOGO <<'EOF'
+######################################################
+#                                                    #
+#                  SUPER DUPLICATER                  #
+#                    BY WMD & OKL                    #
+#                    © 2021                          #
+#                                                    #
+######################################################
+\n
+EOF
+echo "$LOGO"
 
 echo "👨‍🔬 Jag behöver en sökväg till ljudfilen: "
 read AUDIOPATH
