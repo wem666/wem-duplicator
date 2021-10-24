@@ -5,7 +5,7 @@ read -r -d '' LOGO <<'EOF'
 #                                                    #
 #                  SUPER DUPLICATER                  #
 #                    BY WMD & OKL                    #
-#                    © 2021                          #
+#                       © 2021                       #
 #                                                    #
 ######################################################
 \n
@@ -13,7 +13,7 @@ EOF
 echo "$LOGO"
 
 echo "👨‍🔬 Jag behöver en sökväg till ljudfilen: "
-read AUDIOPATH
+read -e AUDIOPATH
 
 if [ ! -f "$AUDIOPATH" ]
 then
@@ -28,7 +28,7 @@ clear
 echo "$LOGO"
 echo "👨‍🔬 Skriv in sökväg till katalog med filer som du vill "
 echo "använda som namn på den nya: "
-read FILESPATH
+read -e FILESPATH
 
 if [ ! -d "$FILESPATH" ]; then
   echo "⚠️  Sökvägen: $FILESPATH finns inte eller är inte en "
