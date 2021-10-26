@@ -10,4 +10,4 @@ The script requires two inputs
 1. First input is the path to the file which content you want to duplicate.
 1. Second input is the path to the folder with filenames you want to use when you create duplicates of the first input.
 
-The result will end up in a folder called `super-duplicate-ouput`
+The result will end up in a folder called `wmd-duplicator-ouput`
