@@ -35,9 +35,13 @@ if [ ! -d "$FILESPATH" ]; then
   echo "absolut sökväg. Kontrollera och försök igen!"
 fi
 
-clear
-echo "$LOGO"
-echo "Namn på fil:"
-echo $AUDIOPATH
-echo "Katalog med filnamn:"
-echo $FILESPATH
+# use nullglob in case there are no matching files
+shopt -s nullglob
+
+`mkdir output`
+
+FILES=($(ls $FILESPATH))
+
+for f in "${FILES[@]}"; do
+   `cp $AUDIOPATH ./output/$f`
+done
