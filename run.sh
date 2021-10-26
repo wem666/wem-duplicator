@@ -38,10 +38,13 @@ fi
 # use nullglob in case there are no matching files
 shopt -s nullglob
 
-`mkdir output`
+`rm -rf wmd-processed`
+`mkdir wmd-processed`
 
 FILES=($(ls $FILESPATH))
 
 for f in "${FILES[@]}"; do
-   `cp $AUDIOPATH ./output/$f`
+   `cp $AUDIOPATH ./wmd-processed/$f`
 done
+NUMBFILES=$(ls ./wmd-processed/|wc -l)
+echo "Skapade $NUMBFILES filer i katalogen wmd-processed."
