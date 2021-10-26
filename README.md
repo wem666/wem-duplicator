@@ -1,4 +1,4 @@
-# WMD Rename
+# WMD Duplicator
 
 ## How to use the script
 1. Open terminal and go to folder of the script.
