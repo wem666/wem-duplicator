@@ -3,7 +3,7 @@ clear
 read -r -d '' LOGO <<'EOF'
 ######################################################
 #                                                    #
-#                  SUPER DUPLICATER                  #
+#                  SUPER DUPLICATOR                  #
 #                    BY WMD & OKL                    #
 #                       © 2021                       #
 #                                                    #
