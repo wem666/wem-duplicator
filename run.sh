@@ -12,27 +12,27 @@ read -r -d '' LOGO <<'EOF'
 EOF
 echo "$LOGO"
 
-echo "👨‍🔬 Jag behöver en sökväg till ljudfilen: "
+echo "👨‍🔬 I need a path to the file: "
 read -e AUDIOPATH
 
 if [ ! -f "$AUDIOPATH" ]
 then
-  echo "⚠️  Filen:"
+  echo "⚠️  File:"
   echo " $AUDIOPATH"
-  echo "finns inte eller är inte en absolut sökväg."
-  echo "Kontrollera och försök igen!"
+  echo "No such file or file does not exist."
+  echo "Check your path and try again!"
   break
 fi
 
 clear
 echo "$LOGO"
-echo "👨‍🔬 Skriv in sökväg till katalog med filer som du vill "
-echo "använda som namn på den nya: "
+echo "👨‍🔬 Enter a path to a directory  "
+echo "containing the files you want use: "
 read -e FILESPATH
 
 if [ ! -d "$FILESPATH" ]; then
-  echo "⚠️  Sökvägen: $FILESPATH finns inte eller är inte en "
-  echo "absolut sökväg. Kontrollera och försök igen!"
+  echo "⚠️  Path: $FILESPATH does not exist or "
+  echo "is not an absolute path, try again!"
 fi
 
 # use nullglob in case there are no matching files
@@ -46,5 +46,6 @@ FILES=($(ls $FILESPATH))
 for f in "${FILES[@]}"; do
    `cp $AUDIOPATH ./wem-processed/$f`
 done
+
 NUMBFILES=$(ls ./wem-processed/|wc -l)
-echo "Skapade $NUMBFILES filer i katalogen wmd-processed."
+echo "Created $NUMBFILES files in directory wem-processed."
