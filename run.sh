@@ -42,11 +42,11 @@ OutputDirectory="/tmp/wem-processed"
 `rm -rf $OutputDirectory`
 `mkdir $OutputDirectory`
 
-FILES=($(ls $FilesDirectory))
+Files=($(ls $FilesDirectory))
 
-for f in "${FILES[@]}"; do
+for f in "${Files[@]}"; do
    `cp $FilePath $OutputDirectory/$f`
 done
 
-NUMBFILES=$(ls $OutputDirectory/|wc -l)
-echo "Created $NUMBFILES files in directory wem-processed."
+NumberOfFilesCreated=$(ls $OutputDirectory/|wc -l)
+echo "Created $NumberOfFilesCreated files in directory wem-processed."
