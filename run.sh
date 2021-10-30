@@ -28,10 +28,10 @@ clear
 echo "$LOGO"
 echo "👨‍🔬 Enter a path to a directory  "
 echo "containing the files you want use: "
-read -e FILESPATH
+read -e FilesDirectory
 
-if [ ! -d "$FILESPATH" ]; then
-  echo "⚠️  Path: $FILESPATH does not exist or "
+if [ ! -d "$FilesDirectory" ]; then
+  echo "⚠️  Path: $FilesDirectory does not exist or "
   echo "is not an absolute path, try again!"
 fi
 
@@ -42,7 +42,7 @@ OutputDirectory="/tmp/wem-processed"
 `rm -rf $OutputDirectory`
 `mkdir $OutputDirectory`
 
-FILES=($(ls $FILESPATH))
+FILES=($(ls $FilesDirectory))
 
 for f in "${FILES[@]}"; do
    `cp $FilePath $OutputDirectory/$f`
