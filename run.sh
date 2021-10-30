@@ -38,14 +38,15 @@ fi
 # use nullglob in case there are no matching files
 shopt -s nullglob
 
-`rm -rf wem-processed`
-`mkdir wem-processed`
+OutputDirectory="/tmp/wem-processed"
+`rm -rf $OutputDirectory`
+`mkdir $OutputDirectory`
 
 FILES=($(ls $FILESPATH))
 
 for f in "${FILES[@]}"; do
-   `cp $AUDIOPATH ./wem-processed/$f`
+   `cp $AUDIOPATH $OutputDirectory/$f`
 done
 
-NUMBFILES=$(ls ./wem-processed/|wc -l)
+NUMBFILES=$(ls $OutputDirectory/|wc -l)
 echo "Created $NUMBFILES files in directory wem-processed."
