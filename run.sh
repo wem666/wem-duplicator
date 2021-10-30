@@ -13,12 +13,12 @@ EOF
 echo "$LOGO"
 
 echo "👨‍🔬 I need a path to the file: "
-read -e AUDIOPATH
+read -e FilePath
 
-if [ ! -f "$AUDIOPATH" ]
+if [ ! -f "$FilePath" ]
 then
   echo "⚠️  File:"
-  echo " $AUDIOPATH"
+  echo " $FilePath"
   echo "No such file or file does not exist."
   echo "Check your path and try again!"
   break
@@ -45,7 +45,7 @@ OutputDirectory="/tmp/wem-processed"
 FILES=($(ls $FILESPATH))
 
 for f in "${FILES[@]}"; do
-   `cp $AUDIOPATH $OutputDirectory/$f`
+   `cp $FilePath $OutputDirectory/$f`
 done
 
 NUMBFILES=$(ls $OutputDirectory/|wc -l)
