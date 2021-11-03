@@ -4,7 +4,7 @@ read -r -d '' LOGO <<'EOF'
 ######################################################
 #                                                    #
 #                  SUPER DUPLICATOR                  #
-#                    BY WMD & OKL                    #
+#                    BY WEM & OKL                    #
 #                       © 2021                       #
 #                                                    #
 ######################################################
@@ -13,12 +13,12 @@ EOF
 echo "$LOGO"
 
 echo "👨‍🔬 I need a path to the file: "
-read -e AUDIOPATH
+read -e FilePath
 
-if [ ! -f "$AUDIOPATH" ]
+if [ ! -f "$FilePath" ]
 then
   echo "⚠️  File:"
-  echo " $AUDIOPATH"
+  echo " $FilePath"
   echo "No such file or file does not exist."
   echo "Check your path and try again!"
   break
@@ -28,24 +28,25 @@ clear
 echo "$LOGO"
 echo "👨‍🔬 Enter a path to a directory  "
 echo "containing the files you want use: "
-read -e FILESPATH
+read -e FilesDirectory
 
-if [ ! -d "$FILESPATH" ]; then
-  echo "⚠️  Path: $FILESPATH does not exist or "
+if [ ! -d "$FilesDirectory" ]; then
+  echo "⚠️  Path: $FilesDirectory does not exist or "
   echo "is not an absolute path, try again!"
 fi
 
 # use nullglob in case there are no matching files
 shopt -s nullglob
 
-`rm -rf wem-processed`
-`mkdir wem-processed`
+OutputDirectory="/tmp/wem-processed"
+`rm -rf $OutputDirectory`
+`mkdir $OutputDirectory`
 
-FILES=($(ls $FILESPATH))
+Files=($(ls $FilesDirectory))
 
-for f in "${FILES[@]}"; do
-   `cp $AUDIOPATH ./wem-processed/$f`
+for f in "${Files[@]}"; do
+   `cp $FilePath $OutputDirectory/$f`
 done
 
-NUMBFILES=$(ls ./wem-processed/|wc -l)
-echo "Created $NUMBFILES files in directory wem-processed."
+NumberOfFilesCreated=$(ls $OutputDirectory/|wc -l)
+echo "Created $NumberOfFilesCreated files in directory wem-processed."
