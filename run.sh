@@ -35,17 +35,28 @@ if [ ! -d "$FilesDirectory" ]; then
   echo "is not an absolute path, try again!"
 fi
 
-# use nullglob in case there are no matching files
-shopt -s nullglob
-
 OutputDirectory="/tmp/wem-processed"
 `rm -rf $OutputDirectory`
 `mkdir $OutputDirectory`
 
-Files=($(ls $FilesDirectory))
+# save and change IFS
+OLDIFS=$IFS
+IFS=$'\n'
 
-for f in "${Files[@]}"; do
-   `cp $FilePath $OutputDirectory/$f`
+fileArray=($(find $FilesDirectory -type f -exec basename {} ';'))
+
+# restore it
+IFS=$OLDIFS
+
+# get length of an array
+tLen=${#fileArray[@]}
+
+# use for loop read all filenames
+for (( i=0; i<${tLen}; i++ ));
+do
+  file=${fileArray[$i]}
+  `cp $FilePath "$OutputDirectory/$file"`
+  # "$FilePath $OutputDirectory/$file"
 done
 
 NumberOfFilesCreated=$(ls $OutputDirectory/|wc -l)
