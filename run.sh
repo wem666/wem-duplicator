@@ -56,7 +56,6 @@ for (( i=0; i<${tLen}; i++ ));
 do
   file=${fileArray[$i]}
   `cp $FilePath "$OutputDirectory/$file"`
-  # "$FilePath $OutputDirectory/$file"
 done
 
 NumberOfFilesCreated=$(ls $OutputDirectory/|wc -l)
