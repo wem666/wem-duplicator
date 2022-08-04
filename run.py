@@ -3,8 +3,12 @@ logo="""
 ######################################################
 #                                                    #
 #                   WEM DUPLICATOR                   #
-#                    BY WEM & OKL                    #
-#                       © 2021                       #
+#                                                    #
+#                 Copyright (C) 2022                 #
+#                         OKL                        #
+#                                                    #
+#  WEM DUPLICATOR comes with ABSOLUTELY NO WARRANTY. #
+#              For details read LICENSE              #
 #                                                    #
 ######################################################
 """
